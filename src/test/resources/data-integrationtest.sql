@@ -1,0 +1,2 @@
+insert into chat_message (message_id, message, received_time, sender_id, receiver_id) values ('1', 'hello', CURRENT_TIMESTAMP(), 'sender1', 'receiver1'),
+ ('2', 'hello', CURRENT_TIMESTAMP(), 'sender2', 'receiver2');

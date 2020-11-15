@@ -9,7 +9,7 @@ spring:
     hibernate:
       ddl-auto: none
   datasource:
-    platform: abc
+    platform: integrationtest
     url: jdbc:h2:mem:testdb
     username: abc
     password: abc
