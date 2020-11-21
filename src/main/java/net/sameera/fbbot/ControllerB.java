@@ -1,7 +1,7 @@
 package net.sameera.fbbot;
 
 import lombok.RequiredArgsConstructor;
-import net.sameera.fbbot.models.Message;
+import net.sameera.fbbot.model.Message;
 import net.sameera.fbbot.repository.MessageRepository;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

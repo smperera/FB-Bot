@@ -17,3 +17,8 @@ spring:
     console:
       enabled: true
       path: /h2
+
+fb-settings:
+  access_token: ${FB_APP_SECRET}
+  app_secret: ${APP_SECRET}
+  verify_token: ${VERIFY_TOKEN}

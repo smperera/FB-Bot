@@ -1,6 +1,6 @@
 package net.sameera.fbbot.repository;
 
-import net.sameera.fbbot.models.Message;
+import net.sameera.fbbot.model.Message;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
