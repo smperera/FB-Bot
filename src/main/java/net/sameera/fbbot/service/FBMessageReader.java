@@ -8,6 +8,7 @@ import com.github.messenger4j.send.MessagePayload;
 import com.github.messenger4j.send.MessagingType;
 import com.github.messenger4j.send.message.TextMessage;
 import net.sameera.fbbot.config.FacebookSetting;
+import net.sameera.fbbot.model.Message;
 import net.sameera.fbbot.repository.MessageRepository;
 import org.springframework.stereotype.Component;
 
@@ -39,17 +40,7 @@ public class FBMessageReader {
                         final String senderId = event.senderId();
                         if (event.isTextMessageEvent()) {
                             final String text = event.asTextMessageEvent().text();
-                            System.out.println("##### " + text);
-
-                            final TextMessage textMessage = TextMessage.create(text);
-                            final MessagePayload messagePayload =
-                                    MessagePayload.create(senderId, MessagingType.RESPONSE, textMessage);
-
-                            try {
-                                messenger.send(messagePayload);
-                            } catch (MessengerApiException | MessengerIOException e) {
-                                // Oops, something went wrong
-                            }
+                            System.out.println("##### SenderID" + senderId + ", msg: " + text);
                         }
                     });
         }
@@ -68,5 +59,18 @@ public class FBMessageReader {
         }
 
         return params.get("hub.challenge");
+    }
+
+    public Message send(Message message) {
+        final TextMessage textMessage = TextMessage.create(message.getMessage());
+        final MessagePayload messagePayload =
+                MessagePayload.create(message.getSenderId(), MessagingType.RESPONSE, textMessage);
+
+        try {
+            messenger.send(messagePayload);
+        } catch (MessengerApiException | MessengerIOException e) {
+            e.printStackTrace();
+        }
+        return message;
     }
 }

@@ -19,6 +19,6 @@ spring:
       path: /h2
 
 fb-settings:
-  access_token: ${FB_APP_SECRET}
-  app_secret: ${APP_SECRET}
+  access_token: ${ACCESS_TOKEN}
+  app_secret: ${FB_APP_SECRET}
   verify_token: ${VERIFY_TOKEN}
